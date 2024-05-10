@@ -1,0 +1,303 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Word Counter </title>
+        <style>
+            body 
+            { 
+                margin: 25px 75px;
+                background-image: url("https://hougumlaw.com/wp-content/uploads/2016/05/light-website-backgrounds-light-color-background-images-light-color-background-images-for-website-1024x640.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            h1 
+            {
+		        font-size:65px;
+                color: #00004d;
+                border-radius:5px;
+                margin-top: 3%;
+                margin-left: 15%;
+                margin-right: 100px;
+                text-align: center;
+            }
+            textarea 
+            {
+                padding: 8px;
+                width:75%;
+                height:200px;
+                margin-left: 15%;
+                border-radius:3px;
+                background-color:#f5f5f0;
+                border-width: 3px;
+            }
+            button 
+            {
+                background-color: #00004d;
+                color: #ffff;
+                padding: 8px 16px;
+                border-radius: 4px;
+                border: none;
+                cursor: pointer;
+                font-size: larger;
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 60px;
+                margin-right: 60px;
+            }
+            .p1
+            {
+                margin-left: 15%;
+                margin-right: 15%;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 20px;
+                padding-bottom: 50px;
+            }
+            button:hover 
+            {
+                background-color: #000080;
+            }
+            .button-container 
+            {
+                display: flex;
+                margin-left: 37%;
+            }
+            .p
+            {
+                
+                margin-left: 15%;
+                margin-right: 0%;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 21px;
+                padding-bottom: 20px;
+                font-weight: bold;
+            }
+            #wordCountResult 
+            {
+                margin-top: 3%;
+                font-size: 35px;
+                font-weight: bold;
+                margin-left: 40%;
+            }
+            #wordFreqCountResult 
+            {
+                margin-top: 5%;
+                font-size: 20px;
+                font-weight: bold;
+                margin-left: 31%;
+                float: left;
+                width: 50%;
+                display: table-cell;
+            }
+            #col 
+            {
+                -webkit-columns: auto 2; 
+                -moz-columns: auto 2;
+                columns: auto 2;
+                width: 60%;
+                margin-left: 25%;
+		        margin-top: 3%;
+            }
+            #refresh
+            {
+                margin-left: 47%;
+            }
+            #col1 
+            {
+                margin-top: 3%;
+                font-size: 35px;
+                font-weight: bold;
+                margin-left: 40%;
+            }
+             @media only screen and (max-width:700px)
+            {
+                body 
+                { 
+                background-image: url("https://hougumlaw.com/wp-content/uploads/2016/05/light-website-backgrounds-light-color-background-images-light-color-background-images-for-website-1024x640.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                }
+                h1 
+                {
+                    margin-left: 3%;
+                margin-right: 3%;
+		        margin-top: 10%;
+		        font-size:60px;
+                color: #00004d;
+                border-radius:5px;
+                text-align: center;
+                }
+            textarea 
+            {
+            	margin-left: 3%;
+                padding: 8px;
+                width:95%;
+                height:180px;
+                border-radius:3px;
+                background-color:#f5f5f0;
+                border-width: 3px;
+
+            }
+            .button-container 
+            {
+                display: flex;
+                margin-left: 0%;
+                margin-right: 0%;
+                width:50%;
+            }
+            .button 
+            {
+                background-color: #00004d;
+                color: #ffff;
+                padding: 8px 16px;
+                border-radius: 4px;
+                border: none;
+                font-size:medium;
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 60px;
+            }
+            .p1
+            {
+                margin-left: 1%;
+                margin-right: 0%;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: large;
+                padding-bottom: 20px;
+            }
+            .p
+            {
+                margin-left: 1%;
+                margin-right: 3%;
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: large;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+            #wordCountResult 
+            {
+                margin-top: 15%;
+                font-size: 18px;
+                font-weight: bold;
+                margin-left: 5%;
+            }
+            #wordFreqCountResult 
+            {
+                margin-top: 5%;
+                font-size: 16px;
+                font-weight: bold;
+                margin-left: 5%;
+                float: left;
+                width: 50%;
+                display: table-cell;
+            }
+            #col1 
+            {
+                margin-top: 3%;
+                font-size: 18px;
+                font-weight: bold;
+                margin-left: 5%;
+            }
+            #refresh
+            {
+                margin-left: 25%;
+            }
+            #col 
+            {
+                -webkit-columns: auto 1; 
+                -moz-columns: auto 1;
+                columns: auto 1;
+                width: 100%;
+                margin-left: 3%;
+                margin-right: 3%;
+		        margin-top: 3%;
+            }
+            }
+        </style>
+        <body>
+                <h1>Word Counter</h1>
+
+                <div class="p1">
+                    Word Counter is a handy tool to assist you in managing your text documents efficiently. 
+                    With just a few clicks, you can accurately count the number of words in your text
+                    and even analyze the frequency of each word.
+                    <p><b><u>How to Use:</u></b></p>
+                    <b>Count Total Words:</b> Click on this button to get the total number of words in your text.
+                    <br><b>Count Word Frequency:</b> Click on this button to analyze the frequency of each word in your text.       
+                
+                    <p><b> <u>Note</u></b></p>
+                    <p> If the word contains: <br> 1. Punctuation <br> 2. Hyphens<br> 3. Special Characters<br> 4. Numbers <br>
+                    5. Contractions (e.g., "can't," "won't") <br> 6. URLs/Emails <br></p>
+                <p >They are treated as a single word unless you mention them with a white space in between</p>
+                </div>
+                <div class="p">Enter the text you would like to analyze:</div>
+                <div>
+                    <textarea id="inputText" placeholder="Enter your text here..." wrap="hard"></textarea> 
+                    </div>
+
+                <div class="button-container">
+                <a href="#total_count"><button onclick="total()">Count Total Words</button></a>
+                
+                <a href="#freq"><button onclick="frequency()">Count Word Frequency</button></a>
+                </div>
+                <div>
+                    <section id="total_count"><div id="wordCountResult"></div></section>
+                </div>
+                <div id="col">
+                    <section id="freq"><div id="wordFreqCountResult"></div></section>
+                </div>
+                <div id="col1">
+                    <section id="freq"><div id="wordFreqResult"></div></section>
+                </div>
+                <div id="refresh">
+                    <button type="button" onclick="window.location.reload()">Re-enter Text</button>
+                </div>
+                <script>
+                    function total() {
+    const text = document.getElementById("inputText").value;
+    const wordCount = text.trim().split(/\s+/).filter(word => word !== "").length;
+    const wordCountResult = document.getElementById("wordCountResult");
+
+    if (wordCount === 0) {
+        wordCountResult.innerText = 'Please enter some text';
+    } else {
+        wordCountResult.innerText = `Total number of words: ${wordCount}`;
+    }
+
+    wordCountResult.onclick = function () {
+        window.location = "#navigateHere";
+    }
+}
+
+                    function frequency() 
+                    {
+                        const text = document.getElementById("inputText").value;
+                        const words = text.trim().split(/\s+/).filter(word => word !== "");
+                        const wordFrequency = {};
+
+                        // Count frequency of each word
+                        words.forEach(word => {
+                            if (word in wordFrequency) {
+                                wordFrequency[word]++;
+                            } else {
+                                wordFrequency[word] = 1;
+                            }
+                        });
+
+                        // Display the word frequencies
+                        const wordFreqCountResult = document.getElementById("wordFreqCountResult");
+                        if (text==="")
+                        {
+                            document.getElementById("wordFreqResult").innerText ='Please enter some text';  
+                        }
+                        for (let word in wordFrequency) 
+                        {
+                            wordFreqCountResult.innerHTML += `<p><b>${word}</b> : ${wordFrequency[word]}</p>`;
+
+                        }
+                    }
+
+                </script>
+        </body>
+</html>
